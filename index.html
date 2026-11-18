@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kanal-Dashboard</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#0f1117">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="stylesheet" href="style.css?v=30">
+</head>
+<body>
+  <!-- Anmelden: ohne GitHub-Schlüssel sieht man keine Daten -->
+  <section id="login" hidden>
+    <div class="login-card">
+      <span class="logo">▶</span>
+      <h1>🔒 Privat</h1>
+      <p class="sub">Dieses Kanal-Dashboard ist verschlüsselt. Öffne es über deinen persönlichen Link.</p>
+      <p class="hint" id="login-msg"></p>
+    </div>
+  </section>
+
+  <div id="app" hidden>
+  <header class="top">
+    <div class="brand">
+      <span class="logo">▶</span>
+      <div>
+        <h1>Kanal-Dashboard</h1>
+        <p class="sub">Alle Kanäle zusammen – YouTube, TikTok und mehr</p>
+      </div>
+    </div>
+    <div class="top-actions">
+      <button class="btn" id="btn-sync" hidden title="Neueste Zahlen holen (der Bot aktualisiert alle 20 Minuten)">↻ Neu laden</button>
+            <button class="btn" id="btn-settings" title="Einstellungen">⚙ Einstellungen</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="status" id="sync-status" hidden></div>
+
+    <!-- Detailseite eines Kanals (#konto=ID) -->
+    <section id="detail" hidden></section>
+
+    <div id="overview">
+    <!-- Filter -->
+    <section class="filters">
+      <div class="chips" id="filter-platform"></div>
+      <div class="chips" id="filter-brand"></div>
+    </section>
+
+    <!-- 1. Gesamtzahlen -->
+    <section>
+      <h2>Zusammen</h2>
+      <div class="kpis" id="kpis"></div>
+    </section>
+
+    <!-- 2. Accounts, nach Projekt geordnet -->
+    <section>
+      <h2>Accounts <span class="count" id="acc-count"></span></h2>
+      <div id="accounts"></div>
+    </section>
+
+    <!-- 3. Alle Videos aller Kanäle -->
+    <section>
+      <div class="card-head detail-head">
+        <h2>Videos <span class="count" id="vid-count"></span></h2>
+        <select id="all-video-sort">
+          <option value="published">Neueste zuerst</option>
+          <option value="views">Meiste Aufrufe</option>
+          <option value="delta">Größtes Plus</option>
+          <option value="likes">Meiste Likes</option>
+          <option value="rate">Beste Like-Rate</option>
+        </select>
+      </div>
+      <div class="card" id="all-videos"></div>
+    </section>
+
+    <!-- 4. Kommentar-Laufband -->
+    <section id="ticker-overview"></section>
+
+    <!-- 5. Diagramme -->
+    <section class="charts">
+      <div class="card">
+        <div class="card-head">
+          <h3>Vergleich</h3>
+          <select id="compare-metric"></select>
+        </div>
+        <div id="chart-compare"></div>
+      </div>
+      <div class="card">
+        <div class="card-head">
+          <h3>Wachstum</h3>
+          <select id="growth-metric"></select>
+        </div>
+        <div id="chart-growth"></div>
+      </div>
+    </section>
+
+    <!-- 6. Aufteilung -->
+    <section>
+      <h2>Aufteilung</h2>
+      <div class="card table-wrap"><table class="split" id="split"></table></div>
+    </section>
+
+    <!-- 7. Einnahmen -->
+    <section>
+      <h2>Einnahmen</h2>
+      <div class="money" id="money"></div>
+    </section>
+    </div><!-- /overview -->
+
+    <footer>
+      <p>Ein Bot aktualisiert alle 20 Minuten – auch wenn dein PC aus ist. Die Daten sind verschlüsselt, nur dein Link öffnet sie.
+        <button class="link" id="btn-export">Backup herunterladen</button>
+      </p>
+    </footer>
+  </main>
+  </div><!-- /app -->
+
+  
+
+  <!-- Dialog: Einstellungen -->
+  <dialog id="dlg-settings">
+    <form method="dialog" id="form-settings">
+      <h2>Einstellungen</h2>
+      <label>Währung<input name="currency" maxlength="4"></label>
+      <h3>So funktioniert es</h3>
+      <p class="hint">YouTube und TikTok holt ein Bot auf GitHub alle 20 Minuten automatisch – auch wenn dein PC aus ist. Neue Videos kommen von selbst dazu. Die Daten sind verschlüsselt, nur dein Link kann sie öffnen.</p>
+      <h3>Geschätzte Einnahmen pro 1.000 Aufrufe</h3>
+      <p class="hint">Grobe Werte. YouTube Shorts zahlen meist 0,02–0,08 €, TikTok (Creator Rewards, nur Videos über 1 Minute) 0,40–1,00 € pro 1.000 Aufrufe. Geld gibt es erst, wenn der Account monetarisiert ist.</p>
+      <div class="grid2" id="rpm-fields"></div>
+      <div class="dlg-actions">
+        <button type="button" class="btn danger" id="btn-logout">Schlüssel hier löschen</button>
+        <span class="grow"></span>
+        <button type="button" class="btn" id="btn-settings-cancel">Abbrechen</button>
+        <button class="btn primary" value="save">Speichern</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="app.js?v=30"></script>
+</body>
+</html>

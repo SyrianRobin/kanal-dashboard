@@ -1,0 +1,40 @@
+{
+ "accounts": [
+  {
+   "id": "aladdin-clips-yt",
+   "name": "Aladdin Clips",
+   "brand": "Aladdin Clips",
+   "platform": "youtube",
+   "handle": "@Aladdin-Clips1",
+   "url": "https://www.youtube.com/@Aladdin-Clips1",
+   "notes": "Cartoon-Shorts „Did you know?“"
+  },
+  {
+   "id": "aladdin-clips-tt",
+   "name": "Aladdin Clips",
+   "brand": "Aladdin Clips",
+   "platform": "tiktok",
+   "handle": "@aladdin.clips7",
+   "url": "https://www.tiktok.com/@aladdin.clips7",
+   "notes": ""
+  },
+  {
+   "id": "player-aladdin-yt",
+   "name": "Player Aladdin",
+   "brand": "In This World",
+   "platform": "youtube",
+   "handle": "@PlayerAladdin",
+   "url": "https://www.youtube.com/@PlayerAladdin",
+   "notes": "Roblox „In this world“-Shorts"
+  },
+  {
+   "id": "player-aladdin-tt",
+   "name": "Player Aladdin",
+   "brand": "In This World",
+   "platform": "tiktok",
+   "handle": "@player.aladdin",
+   "url": "https://www.tiktok.com/@player.aladdin",
+   "notes": ""
+  }
+ ]
+}
