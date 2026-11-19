@@ -2,8 +2,10 @@ name: Kanäle tracken
 
 on:
   schedule:
-    - cron: "*/20 * * * *"   # alle 20 Minuten (GitHub startet manchmal ein paar Minuten später)
+    - cron: "7,27,47 * * * *"   # Ersatz: GitHub lässt viele geplante Läufe ausfallen (v. a. zur vollen Stunde)
   workflow_dispatch: {}
+  push:
+    branches: [wecker]          # der PC (Windows-Aufgabe "Kanal-Wecker") schubst hierher alle 20 Min
 
 permissions:
   contents: write
@@ -18,6 +20,8 @@ jobs:
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
